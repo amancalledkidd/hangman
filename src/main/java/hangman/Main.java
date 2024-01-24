@@ -15,18 +15,23 @@ public class Main {
         String[] commandOptions = new String[]{"Play Hangman", "Quit" };
         commands.setCommands(commandOptions);
 
-        commands.printCommands(); // "Please select an option" "0: Enter a string"  "1: Do something else..." "2: Quit"
 
         while (isOn) {
+            commands.printCommands();
             int intInput = commands.getIntegerInput();
 
             if (intInput == 0) {
                 Game game = new Game();
                 game.gameStart();
+
                 while (game.getGuesses() > 0) {
                     game.showCurrentGuess();
+                    System.out.println(game.getGuesses() + " :Lives left");
                     game.checkGuess(commands.getCharInput());
+                    game.checkWin();
+                    game.showUsedLetters();
                 }
+
 
             } else {
                 isOn = false;

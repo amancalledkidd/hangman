@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9306a72d-0190-43bf-a069-26bdf1128905" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hangman/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hangman/command/Commands.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hangman/game/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hangman/dictionary/DictionaryUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hangman/game/GameUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hangman/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hangman/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hangman/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hangman/game/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +51,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="hangman.dictionary" />
       <recent name="hangman" />
       <recent name="hangman.command" />
     </key>
