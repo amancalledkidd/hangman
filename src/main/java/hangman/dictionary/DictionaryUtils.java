@@ -47,6 +47,7 @@ public class DictionaryUtils {
         words.add("Algorithm");
         words.add("Affix");
         words.add("Accordion");
+        words.add("Party");
     }
 
     public static String generateWord() {
