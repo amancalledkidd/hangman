@@ -1,10 +1,8 @@
 package hangman;
 
-import hangman.command.Commands;
 import hangman.command.HangmanCommands;
 import hangman.dictionary.DictionaryUtils;
 import hangman.game.CustomGame;
-import hangman.game.Game;
 import hangman.game.NormalGame;
 
 public class Main {
