@@ -1,29 +1,22 @@
 package hangman.game;
 
-import hangman.dictionary.DictionaryUtils;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class Game {
-    private String word = DictionaryUtils.generateWord().toLowerCase();
-    private int guesses = 3;
+
+public abstract class Game {
+    private final String word;
+    private int guesses = 8;
     private char[] currentGuess;
-    private ArrayList<Character> lettersUsed = new ArrayList<>();
+    private final ArrayList<Character> lettersUsed = new ArrayList<>();
 
+    public Game( String word) {
+        this.word = word;
+    }
 
     public char[] getCurrentGuess() {
         return currentGuess;
     }
 
-
-    public String getWord() {
-        return word;
-    }
-
-    public void setWord(String word) {
-        this.word = word;
-    }
 
     public int getGuesses() {
         return guesses;
@@ -34,11 +27,11 @@ public class Game {
     }
 
     public void secretWord() {
-        char[] wordSpaces = new char[word.length()];
+        char[] wordEmptySpaces = new char[word.length()];
         for (int i = 0; i < word.length(); i++) {
-            wordSpaces[i] = '_';
+            wordEmptySpaces[i] = '_';
         }
-        currentGuess = wordSpaces;
+        currentGuess = wordEmptySpaces;
     }
 
     public void showCurrentGuess() {
@@ -73,7 +66,7 @@ public class Game {
     public void checkWin() {
         String answer = String.copyValueOf(getCurrentGuess());
         if (answer.equals(word)) {
-            System.out.println("You win!!");
+            System.out.println("You win!! \n\n");
             guesses = 0;
         } else if (guesses == 0) {
             System.out.println("You Lose!! The word was... \n\n" + word + "\n");
@@ -81,7 +74,19 @@ public class Game {
     }
 
     public void gameStart() {
-
+        System.out.println("Let the games begin");
         secretWord();
+    }
+
+
+
+    // The game functions to be included in loop
+    public void gameLoop() {
+        System.out.println();
+        checkWin();
+        showUsedLetters();
+        showCurrentGuess();
+        System.out.println("Lives left: " + getGuesses());
+
     }
 }

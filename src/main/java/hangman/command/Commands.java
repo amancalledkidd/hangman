@@ -2,18 +2,10 @@ package hangman.command;
 
 import java.util.Scanner;
 
-public class Commands {
-    private Scanner scanner = new Scanner(System.in);
-    private String name;
-    private String[] commands = new String[]{};
+public abstract class Commands {
+    protected final Scanner scanner = new Scanner(System.in);
+    protected String[] commands = new String[]{};
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String[] getCommands() {
         return commands;
@@ -23,17 +15,26 @@ public class Commands {
         this.commands = commands;
     }
 
-    public void printGreeting() {
-        System.out.println("Welcome to the " + this.name + "\n");
-    }
+    public abstract void printGreeting();
 
     public void printCommands() {
         if (commands.length == 0) {
-            System.out.println("No current commands set\n");
+            System.out.println("\nNo current commands set\n");
         } else {
-            System.out.println("Please select an option: \n");
+            System.out.println("\nPlease select an option: \n");
             for (int i = 0; i < commands.length; i++){
                 System.out.println(i + ": " + commands[i]);
+            }
+        }
+    }
+
+    public String getWordInput() {
+        while (true) {
+            String input = scanner.nextLine();
+            if (input.isEmpty()){
+                System.out.println("Please enter word!");
+            } else {
+                return input.split(" ")[0].toLowerCase();
             }
         }
     }
@@ -50,21 +51,15 @@ public class Commands {
 
     }
 
-    public String getStringInput() {
-        while (true) {
-            String input = scanner.nextLine();
-            if (input.isEmpty()){
-                System.out.println("Please enter text!");
-            } else {
-                return input;
-            }
-        }
-    }
 
+//  Method to get command line characters from user
     public char getCharInput() {
+//      Infinite loop requires valid letter to end.
         while (true) {
             System.out.println("Enter a letter: ");
+//          Only takes first letter entered on command line
             char input = scanner.next().charAt(0);
+            // if char given is not letter, displays error message, then loop starts again
             if (!Character.isLetter(input)){
                 System.out.println("Incorrect character!");
             } else {
@@ -72,5 +67,6 @@ public class Commands {
             }
         }
     }
+
 
 }
