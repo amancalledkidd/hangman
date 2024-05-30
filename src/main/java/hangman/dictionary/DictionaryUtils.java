@@ -51,8 +51,8 @@ public class DictionaryUtils {
     }
 
     public static String generateWord() {
-        int name = (int) Math.round(Math.random() * words.size());
-        return words.get(name);
+        int wordIndex = (int) (Math.random() * words.size());
+        return words.get(wordIndex);
     }
 
 }

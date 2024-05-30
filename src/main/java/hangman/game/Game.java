@@ -1,5 +1,7 @@
 package hangman.game;
 
+import hangman.command.HangmanCommands;
+
 import java.util.ArrayList;
 
 
@@ -8,9 +10,12 @@ public abstract class Game {
     private int guesses = 8;
     private char[] currentGuess;
     private final ArrayList<Character> lettersUsed = new ArrayList<>();
+    protected final HangmanCommands commands;
 
-    public Game( String word) {
+
+    public Game(String word, HangmanCommands commands) {
         this.word = word;
+        this.commands = commands;
     }
 
     public char[] getCurrentGuess() {
@@ -73,9 +78,20 @@ public abstract class Game {
         }
     }
 
+
+
     public void gameStart() {
         System.out.println("Let the games begin");
         secretWord();
+    }
+
+
+    public void run() {
+        gameStart();
+        while (getGuesses() > 0) {
+            checkGuess(commands.getCharInput());
+            gameLoop();
+        }
     }
 
 

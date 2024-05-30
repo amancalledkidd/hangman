@@ -1,8 +1,10 @@
 package hangman.game;
 
+import hangman.command.HangmanCommands;
+
 public class NormalGame extends Game{
-    public NormalGame(String word) {
-        super(word);
+    public NormalGame(String word, HangmanCommands commands) {
+        super(word, commands);
     }
 
     @Override
